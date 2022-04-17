@@ -9,8 +9,7 @@ class RadioTest {
     @Test
     void getCurrentRadioStation() {
         Radio home = new Radio();
-
-        home.currentRadioStation = 5;
+        home.setCurrentRadioStation(5);
 
         int expected = 5;
         int actual = home.getCurrentRadioStation();
@@ -21,8 +20,7 @@ class RadioTest {
     @Test
     void getCurrentRadioStation0() {
         Radio home = new Radio();
-
-        home.currentRadioStation = 0;
+        home.setCurrentRadioStation(0);
 
         int expected = 0;
         int actual = home.getCurrentRadioStation();
@@ -33,8 +31,7 @@ class RadioTest {
     @Test
     void getCurrentRadioStation9() {
         Radio home = new Radio();
-
-        home.currentRadioStation = 9;
+        home.setCurrentRadioStation(9);
 
         int expected = 9;
         int actual = home.getCurrentRadioStation();
@@ -45,7 +42,6 @@ class RadioTest {
     @Test
     void setCurrentRadioStation() {
         Radio home = new Radio();
-
         home.setCurrentRadioStation(5);
 
         int expected = 5;
@@ -55,9 +51,41 @@ class RadioTest {
     }
 
     @Test
-    void setCurrentRadioStation1() {
+    void setCurrentRadioStation0() {
         Radio home = new Radio();
+        home.setCurrentRadioStation(0);
 
+        int expected = 0;
+        int actual = home.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void setCurrentRadioStation9() {
+        Radio home = new Radio();
+        home.setCurrentRadioStation(9);
+
+        int expected = 9;
+        int actual = home.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void setCurrentRadioStation2() {
+        Radio home = new Radio();
+        home.setCurrentRadioStation(-1);
+
+        int expected = 0;
+        int actual = home.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void setCurrentRadioStation15() {
+        Radio home = new Radio();
         home.setCurrentRadioStation(15);
 
         int expected = 0;
@@ -74,6 +102,19 @@ class RadioTest {
         home.nextStation();
 
         int expected = 3;
+        int actual = home.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void nextStation0() {
+        Radio home = new Radio();
+        home.setCurrentRadioStation(0);
+
+        home.nextStation();
+
+        int expected = 1;
         int actual = home.getCurrentRadioStation();
 
         assertEquals(expected, actual);
@@ -106,6 +147,19 @@ class RadioTest {
     }
 
     @Test
+    void prevStation1() {
+        Radio home = new Radio();
+        home.setCurrentRadioStation(1);
+
+        home.prevStation();
+
+        int expected = 0;
+        int actual = home.getCurrentRadioStation();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void prevStation0() {
         Radio home = new Radio();
         home.setCurrentRadioStation(0);
@@ -121,8 +175,7 @@ class RadioTest {
     @Test
     void getCurrentVolume() {
         Radio home = new Radio();
-
-        home.currentVolume = 5;
+        home.setCurrentVolume(5);
 
         int expected = 5;
         int actual = home.getCurrentVolume();
@@ -131,9 +184,30 @@ class RadioTest {
     }
 
     @Test
+    void getCurrentVolume0() {
+        Radio home = new Radio();
+        home.setCurrentVolume(0);
+
+        int expected = 0;
+        int actual = home.getCurrentVolume();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void getCurrentVolume10() {
+        Radio home = new Radio();
+        home.setCurrentVolume(10);
+
+        int expected = 10;
+        int actual = home.getCurrentVolume();
+
+        assertEquals(expected, actual);
+    }
+
+    @Test
     void setCurrentVolume() {
         Radio home = new Radio();
-
         home.setCurrentVolume(3);
 
         int expected = 3;
@@ -145,7 +219,6 @@ class RadioTest {
     @Test
     void setCurrentVolume0() {
         Radio home = new Radio();
-
         home.setCurrentVolume(0);
 
         int expected = 0;
@@ -157,7 +230,6 @@ class RadioTest {
     @Test
     void setCurrentVolume10() {
         Radio home = new Radio();
-
         home.setCurrentVolume(10);
 
         int expected = 10;
@@ -169,7 +241,6 @@ class RadioTest {
     @Test
     void setCurrentVolume11() {
         Radio home = new Radio();
-
         home.setCurrentVolume(11);
 
         int expected = 0;
